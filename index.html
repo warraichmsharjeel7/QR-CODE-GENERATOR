@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="scan-icon-front-side.jpg">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>QR Code Generator</title>
+</head>
+<body>
+
+    <div class="background-animation">
+        <div class="gradient-circle circle-1"></div>
+        <div class="gradient-circle circle-2"></div>
+        <div class="gradient-circle circle-3"></div>
+        <div class="gradient-circle circle-4"></div>
+    </div>
+    
+    <header class="header">
+        <div class="logo-container">
+            <i class="fas fa-qrcode logo-icon"></i>
+            <div class="logo-text">
+                <h1 class="logo">QR Code</h1>
+                <span class="ai-text">Generator</span>
+            </div>
+        </div>
+        <p class="tagline">Create Beautiful QR Codes Instantly</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-wand-magic-sparkles"></i> Generate QR Code</h2>
+                <p class="subtitle">Enter text, URL, or any content below</p>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-icon">
+                    <i class="fas fa-pen"></i>
+                </div>
+                <input type="text" placeholder="https://example.com or any text..." id="qrtext">
+                <div class="input-actions">
+                    <button class="clear-btn" id="clearBtn" title="Clear">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="size-options">
+                <p>QR Code Size:</p>
+                <div class="size-buttons">
+                    <button class="size-btn active" data-size="150">Small</button>
+                    <button class="size-btn" data-size="250">Medium</button>
+                    <button class="size-btn" data-size="350">Large</button>
+                </div>
+            </div>
+            
+            <button class="generate-btn" onclick="generateqr()">
+                <i class="fas fa-bolt"></i> Generate QR Code
+            </button>
+            
+            <div id="imgbox">
+                <img src="" id="qrimage" alt="Generated QR Code">
+                <div class="qr-overlay" id="qrOverlay">
+                    <i class="fas fa-qrcode"></i>
+                    <p>Your QR Code will appear here</p>
+                </div>
+            </div>
+            
+            <div class="action-buttons" id="actionButtons">
+                <button class="download-btn" id="downloadBtn" onclick="downloadQR()">
+                    <i class="fas fa-download"></i> Download QR
+                </button>
+                <button class="color-btn" id="colorBtn">
+                    <i class="fas fa-palette"></i> Customize
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast Generation</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure & Private</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-infinity"></i>
+                    <span>QR Generator</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Create by SHARJEEL7</p>
+        <p class="footer-links">
+            <a href="https://github.com/warraichmsharjeel7" target="_blank"><i class="fab fa-github"></i> GitHub</a> | 
+            <!-- <a href="https://www.instagram.com/irtiza8259" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |  -->
+            <a href="mailto:warraichmsharjeel18@gmail.com"><i class="fas fa-envelope"></i> Contact</a>
+        </p>
+    </footer>
+
+    <div class="modal" id="colorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-palette"></i> Customize QR Code</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="color-option">
+                    <label>Foreground Color:</label>
+                    <input type="color" id="fgColor" value="#000000">
+                </div>
+                <div class="color-option">
+                    <label>Background Color:</label>
+                    <input type="color" id="bgColor" value="#ffffff">
+                </div>
+                <div class="preview-container">
+                    <p>Preview:</p>
+                    <div class="preview-box" id="colorPreview"></div>
+                </div>
+                <button class="apply-btn" id="applyColors">Apply Colors</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
